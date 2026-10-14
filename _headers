@@ -1,0 +1,4 @@
+# Netlify and Cloudflare Pages: let the local AI use every CPU core.
+/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: credentialless

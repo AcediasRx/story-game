@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ระฆังแห่งธารหมอก</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chonburi&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600&display=swap">
+  <script type="module" crossorigin src="./assets/index-BLKZ5BVr.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-Dtw4YsKG.css">
+</head>
+<body>
+<div id="app">
+  <section id="title-screen" class="library" aria-labelledby="library-title">
+    <header class="library-head">
+      <p class="eyebrow">เกมเล่าเรื่องที่ AI ในเครื่องเป็นผู้ดำเนินเรื่อง</p>
+      <h1 id="library-title" class="world-title">คลังเรื่องเล่า</h1>
+      <p class="tagline">เลือกโลกที่จะเข้าไปเล่น — ทุกครั้งที่เริ่มใหม่ เรื่องจะเดินต่างออกไป</p>
+    </header>
+    <div id="setup-panel" class="setup-panel" hidden></div>
+    <div id="world-list" class="world-list"></div>
+    <section class="creator-cta" aria-labelledby="cta-title">
+      <div>
+        <h2 id="cta-title" class="cta-title">สร้างโลกของคุณเอง</h2>
+        <p class="muted">สุ่มทั้งโลก กรอกฟอร์ม หรือพิมพ์บรรยาย แล้วให้ผู้เล่นจำลองทดสอบก่อนบันทึก</p>
+      </div>
+      <button id="btn-studio" class="btn btn-primary" type="button">เปิด Creator Studio</button>
+    </section>
+    <p class="fine">เรื่องที่เล่นค้าง โลกที่สร้าง และ AI ภาษา ถูกเก็บไว้ในเครื่องนี้ ไม่มีการส่งขึ้นอินเทอร์เน็ต</p>
+  </section>
+
+  <section id="studio" class="studio" hidden aria-label="Creator Studio"></section>
+
+  <section id="play" class="play" hidden>
+    <header class="bar">
+      <button id="btn-home" class="bar-title" type="button" aria-label="กลับหน้าแรก">ระฆังแห่งธารหมอก</button>
+      <div class="bar-status">
+        <span id="clock" class="clock"></span>
+        <span id="genre-chip" class="chip"></span>
+      </div>
+      <div class="bar-stats" aria-label="สถานะ">
+        <span class="stat"><span class="stat-label">พลังชีวิต</span><span id="pips-health" class="pips"></span></span>
+        <span class="stat"><span class="stat-label">สติ</span><span id="pips-resolve" class="pips"></span></span>
+      </div>
+      <div class="bar-buttons">
+        <button id="btn-journal" class="btn btn-small" type="button">บันทึก</button>
+        <button id="btn-director" class="btn btn-small" type="button">เบื้องหลัง</button>
+      </div>
+    </header>
+
+    <figure class="scene">
+      <canvas id="scene-canvas" role="img" aria-label=""></canvas>
+      <figcaption class="scene-caption">
+        <span id="scene-place" class="scene-place"></span>
+        <span id="scene-people" class="scene-people"></span>
+      </figcaption>
+    </figure>
+
+    <div id="log-wrap" class="log-wrap">
+      <ol id="log" class="log" aria-live="polite"></ol>
+    </div>
+
+    <div class="controls">
+      <div id="choices" class="choices"></div>
+      <form id="cmd" class="cmd" autocomplete="off">
+        <label for="cmd-input" class="visually-hidden">พิมพ์สิ่งที่อยากทำ</label>
+        <input id="cmd-input" class="cmd-input" type="text" placeholder="พิมพ์สิ่งที่อยากทำ หรือ &quot;ทำอะไรได้บ้าง&quot;">
+        <button class="btn btn-primary" type="submit">ทำ</button>
+      </form>
+    </div>
+  </section>
+
+  <aside id="drawer" class="drawer" hidden aria-label="แผงข้อมูล">
+    <div class="drawer-head">
+      <div class="tabs" role="tablist">
+        <button id="tab-journal" class="tab" role="tab" type="button">บันทึกการเดินทาง</button>
+        <button id="tab-director" class="tab" role="tab" type="button">เบื้องหลัง</button>
+        <button id="tab-menu" class="tab" role="tab" type="button">เมนู</button>
+      </div>
+      <button id="btn-close-drawer" class="btn btn-small" type="button" aria-label="ปิด">ปิด</button>
+    </div>
+    <div id="drawer-body" class="drawer-body"></div>
+  </aside>
+
+  <section id="ending" class="ending" hidden aria-labelledby="ending-title">
+    <div class="ending-card">
+      <p id="ending-tone" class="eyebrow"></p>
+      <h2 id="ending-title" class="ending-title"></h2>
+      <div id="ending-epilogue" class="ending-epilogue"></div>
+      <h3 class="ending-sub">การตัดสินใจที่หล่อหลอมเรื่องนี้</h3>
+      <ul id="ending-decisions" class="ending-decisions"></ul>
+      <div class="title-actions">
+        <button id="btn-again" class="btn btn-primary" type="button">เล่นอีกครั้ง</button>
+        <button id="btn-ending-director" class="btn" type="button">ดูเบื้องหลัง</button>
+        <button id="btn-ending-read" class="btn" type="button">อ่านเรื่องย้อนหลัง</button>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
