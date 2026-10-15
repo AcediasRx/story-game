@@ -7,19 +7,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chonburi&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Noto+Serif+Thai:wght@400;600&display=swap">
-  <script type="module" crossorigin src="./assets/index-DjZVP4gW.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-udLAwhF-.css">
+  <script type="module" crossorigin src="./assets/index-BIh2mhNd.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-aJlor244.css">
 </head>
 <body>
 <div id="app">
   <section id="title-screen" class="library" aria-labelledby="library-title">
     <header class="library-head">
-      <p class="eyebrow">เกมเล่าเรื่องที่ AI ในเครื่องเป็นผู้ดำเนินเรื่อง</p>
+      <p class="eyebrow">นิยายภาพที่เรื่องเดินตามสิ่งที่คุณเขียน</p>
       <h1 id="library-title" class="world-title">คลังเรื่องเล่า</h1>
       <p class="tagline">เลือกโลกที่จะเข้าไปเล่น — ทุกครั้งที่เริ่มใหม่ เรื่องจะเดินต่างออกไป</p>
     </header>
-    <div id="setup-panel" class="setup-panel" hidden></div>
-    <div id="world-list" class="world-list"></div>
+    <section class="home-section" aria-labelledby="worlds-title">
+      <h2 id="worlds-title">เลือกเรื่อง</h2>
+      <div id="world-list" class="world-list"></div>
+    </section>
+    <section id="setup-section" class="home-section" aria-labelledby="setup-title">
+      <h2 id="setup-title">ตั้งค่าให้เล่นได้เต็มที่</h2>
+      <div id="setup-panel" class="setup-panel" hidden></div>
+    </section>
     <section class="creator-cta" aria-labelledby="cta-title">
       <div>
         <h2 id="cta-title" class="cta-title">สร้างโลกของคุณเอง</h2>
@@ -27,7 +33,7 @@
       </div>
       <button id="btn-studio" class="btn btn-primary" type="button">เปิด Creator Studio</button>
     </section>
-    <p class="fine">เรื่องที่เล่นค้าง โลกที่สร้าง และ AI ภาษา ถูกเก็บไว้ในเครื่องนี้ ไม่มีการส่งขึ้นอินเทอร์เน็ต</p>
+    <p class="fine">เรื่องที่เล่นค้าง โลกที่สร้าง และรูปตัวละคร เก็บไว้ในเครื่องนี้เท่านั้น</p>
   </section>
 
   <section id="studio" class="studio" hidden aria-label="Creator Studio"></section>
@@ -37,19 +43,21 @@
     <header class="bar">
       <button id="btn-avatar" class="avatar-btn" type="button" aria-label="รูปตัวละคร" hidden><img id="hero-avatar" class="avatar" alt="" hidden><span id="avatar-add" class="avatar-add">+รูป</span></button>
       <button id="btn-home" class="bar-title" type="button" aria-label="กลับหน้าแรก">ระฆังแห่งธารหมอก</button>
-      <div class="bar-status">
-        <span id="clock" class="clock"></span>
-        <span id="genre-chip" class="chip"></span>
-      </div>
-      <div class="bar-stats" aria-label="สถานะ">
-        <span class="stat"><span class="stat-label">พลังชีวิต</span><span id="pips-health" class="pips"></span></span>
-        <span class="stat"><span class="stat-label">สติ</span><span id="pips-resolve" class="pips"></span></span>
+      <div class="bar-meta">
+        <div class="bar-status">
+          <span id="clock" class="clock"></span>
+          <span id="genre-chip" class="chip"></span>
+        </div>
+        <div class="bar-stats" aria-label="สถานะ">
+          <span class="stat"><span class="stat-label">พลังชีวิต</span><span id="pips-health" class="pips"></span></span>
+          <span class="stat"><span class="stat-label">สติ</span><span id="pips-resolve" class="pips"></span></span>
+        </div>
       </div>
       <div class="bar-buttons">
-        <button id="btn-journal" class="btn btn-small" type="button">บันทึก</button>
-        <button id="btn-art" class="btn btn-small" type="button">ภาพ</button>
-        <button id="btn-director" class="btn btn-small" type="button">เบื้องหลัง</button>
-        <button id="btn-cinema" class="btn btn-small" type="button">เต็มจอ</button>
+        <button id="btn-journal" class="bar-btn" type="button" aria-label="บันทึก"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M5 17a3 3 0 0 1 3-3h10"/></svg><span class="lbl">บันทึก</span></button>
+        <button id="btn-art" class="bar-btn" type="button" aria-label="ภาพ"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="9" cy="10" r="1.8" fill="currentColor"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 18l5-5 4 4 3-3 4 4"/></svg><span class="lbl">ภาพ</span></button>
+        <button id="btn-director" class="bar-btn" type="button" aria-label="เบื้องหลัง"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 7h16v12H4zM4 7l3-3m3 3 3-3m3 3 3-3"/></svg><span class="lbl">เบื้องหลัง</span></button>
+        <button id="btn-cinema" class="bar-btn" type="button" aria-label="เต็มจอ"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span class="lbl">เต็มจอ</span></button>
       </div>
     </header>
 
@@ -69,7 +77,7 @@
       <div id="choices" class="choices"></div>
       <form id="cmd" class="cmd" autocomplete="off">
         <label for="cmd-input" class="visually-hidden">พิมพ์สิ่งที่อยากทำ</label>
-        <textarea id="cmd-input" class="cmd-input" rows="1" enterkeyhint="send" placeholder="พิมพ์สิ่งที่อยากทำ หรือ &quot;ทำอะไรได้บ้าง&quot;"></textarea>
+        <textarea id="cmd-input" class="cmd-input" rows="1" enterkeyhint="send" placeholder="พิมพ์สิ่งที่อยากทำ..."></textarea>
         <button id="cmd-send" class="btn btn-primary" type="submit">ทำ</button>
       </form>
     </div>
@@ -78,12 +86,12 @@
   <aside id="drawer" class="drawer" hidden aria-label="แผงข้อมูล">
     <div class="drawer-head">
       <div class="tabs" role="tablist">
-        <button id="tab-journal" class="tab" role="tab" type="button">บันทึกการเดินทาง</button>
-        <button id="tab-art" class="tab" role="tab" type="button">ภาพตัวละคร</button>
+        <button id="tab-journal" class="tab" role="tab" type="button">บันทึก</button>
+        <button id="tab-art" class="tab" role="tab" type="button">ภาพ</button>
         <button id="tab-director" class="tab" role="tab" type="button">เบื้องหลัง</button>
         <button id="tab-menu" class="tab" role="tab" type="button">เมนู</button>
       </div>
-      <button id="btn-close-drawer" class="btn btn-small" type="button" aria-label="ปิด">ปิด</button>
+      <button id="btn-close-drawer" class="icon-btn" type="button" aria-label="ปิด"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
     <div id="drawer-body" class="drawer-body"></div>
   </aside>
