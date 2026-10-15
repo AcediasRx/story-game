@@ -5,7 +5,8 @@ const CACHE = 'story-app-v1';
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', (e) => {
   e.waitUntil((async () => {
-    for (const k of await caches.keys()) if (k !== CACHE) await caches.delete(k);
+    // Old copies of the game go; downloaded models stay.
+    for (const k of await caches.keys()) if (k.startsWith('story-app-') && k !== CACHE) await caches.delete(k);
     await self.clients.claim();
   })());
 });
